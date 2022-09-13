@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SliderView: View {
     @State var textField = ""
-    @State var alertPresented = false
+    @State var alertPresented = true
     
     @Binding var value: Double
     
@@ -24,11 +24,12 @@ struct SliderView: View {
             TextField("\(lround(value))", text: $textField, onEditingChanged: { isBegin in
                 if !isBegin {
                     checkValueTF()
+                    
                 }
             })
             .frame(width: 45)
             .textFieldStyle(.roundedBorder)
-        }
+        } .foregroundColor(.green)
         
     }
     
@@ -38,9 +39,6 @@ struct SliderView: View {
                 textField = ""
                 return }
             value = Double(textField) ?? 0
-        } else {
-            
-            textField = ""
         }
         textField = ""
     }

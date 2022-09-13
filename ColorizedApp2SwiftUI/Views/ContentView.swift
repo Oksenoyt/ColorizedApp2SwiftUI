@@ -15,14 +15,18 @@ struct ContentView: View {
     var body: some View {
         
         ZStack {
-            Color.yellow
+            Color.black.opacity(0.9)
                 .ignoresSafeArea()
-            VStack {
+            VStack(spacing: 15.0) {
+                Text("ColorizeApp")
+                    .foregroundColor(.green)
+                    .bold()
+                    .font(.largeTitle)
                 DisplayView(color: Color(
                     red: slidetRedValue/255,
                     green: slidetGreenValue/255,
                     blue: slidetBlueValue/255),
-                            strokeColor: .white
+                            strokeColor: .green
                 )
                 SliderView(value: $slidetRedValue, color: .red)
                 SliderView(value: $slidetGreenValue, color: .green)
